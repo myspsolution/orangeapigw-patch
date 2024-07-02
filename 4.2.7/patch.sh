@@ -86,12 +86,12 @@ IS_ROOT=0
 
 # Check if the current user is root
 if [ "$(id -u)" -eq 0 ]; then
-    IS_ROOT=1
+  IS_ROOT=1
 fi
 
 # Check if the current user is a sudoer
 if sudo -n true 2>/dev/null; then
-    IS_SUDOER=1
+  IS_SUDOER=1
 fi
 
 version="unknown"
@@ -136,7 +136,7 @@ fi
 
 if [ "$?" -ne 0 ]; then
   if [ "${IS_SUDOER}" -eq 1 ]; then
-	sudo rm -f "${FILE_TO_PATCH}"
+  sudo rm -f "${FILE_TO_PATCH}"
     sudo mv "${FILE_BAK}" "${FILE_TO_PATCH}"
   else
     rm -f "${FILE_TO_PATCH}"
